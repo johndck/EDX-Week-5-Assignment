@@ -89,8 +89,18 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
+// Coded by John Dick
 
 let getPasswordOptions = () => {
+  // This function collects and captures the users requirements.
+  // They must specify at least 1 requirement for the tool to generate a password.
+
+  // As per the requirements this code captures the users requirement for the password.
+
+  // If the user adds text, it won't proceed.
+  // If the user leaves it blank it won't proceed.
+  // If the user asks for less than 8 char or more than 128 it won't proceed
+
   let passwordReqs = {};
   let numCharacters = "";
   while (numCharacters === "" || !numCharacters) {
@@ -102,43 +112,19 @@ let getPasswordOptions = () => {
     while (numCharacters < 8 || numCharacters > 128) {
       alert("Your password must have more than 8 or less than 128 characters");
       numCharacters = parseInt(
-        prompt("How many characters in your password? Has to be >5 & <128")
+        prompt("How many characters in your password? Has to be >8 & <128")
       );
     }
   }
-  // set the password length
+  // set the password length based on what the user entered
   passwordReqs.passwordlength = numCharacters;
   // now gather the requirements
-  // add in while loop to make sure at least 1 is set to true
 
   do {
-    let special = confirm("Do you want special characters?");
-    if (special) {
-      passwordReqs.specialChar = true;
-    } else {
-      passwordReqs.specialChar = false;
-    }
-    // now gather the numbers
-    let numberChar = confirm("Do you want numbers?");
-    if (numberChar) {
-      passwordReqs.numberChar = true;
-    } else {
-      passwordReqs.numberChar = false;
-    }
-    // now gather the uppercase
-    let upperChar = confirm("Do you want upperCase?");
-    if (upperChar) {
-      passwordReqs.upperChar = true;
-    } else {
-      passwordReqs.upperChar = false;
-    }
-    // now gather the lowercase
-    let lowerChar = confirm("Do you want lowerCase?");
-    if (lowerChar) {
-      passwordReqs.lowerChar = true;
-    } else {
-      passwordReqs.lowerChar = false;
-    }
+    passwordReqs.specialChar = confirm("Do you want special characters?");
+    passwordReqs.numberChar = confirm("Do you want numbers?");
+    passwordReqs.upperChar = confirm("Do you want upperCase?");
+    passwordReqs.lowerChar = confirm("Do you want lowerCase?");
   } while (
     !passwordReqs.specialChar &&
     !passwordReqs.numberChar &&
