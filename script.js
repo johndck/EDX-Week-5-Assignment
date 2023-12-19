@@ -103,19 +103,19 @@ let getPasswordOptions = () => {
 
   let passwordReqs = {};
   let numCharacters = "";
-  while (numCharacters === "" || !numCharacters) {
+  do {
     numCharacters = parseInt(
       prompt(
         "How many characters in your password? You have to have between 8 & 128..."
       )
     );
-    while (numCharacters < 8 || numCharacters > 128) {
-      alert("Your password must have more than 8 or less than 128 characters");
-      numCharacters = parseInt(
-        prompt("How many characters in your password? Has to be >8 & <128")
-      );
-    }
-  }
+  } while (
+    numCharacters === "" ||
+    !numCharacters ||
+    numCharacters < 8 ||
+    numCharacters > 128
+  );
+
   // set the password length based on what the user entered
   passwordReqs.passwordlength = numCharacters;
   // now gather the requirements
