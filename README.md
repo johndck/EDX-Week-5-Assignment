@@ -2,6 +2,10 @@
 
 This repo contains a solution to the week 5 assignment for EDX Bootcamp
 
+You can find the source code here: https://github.com/johndck/EDX-Week-5-Assignment/blob/main/script.js
+
+You can find the live application here: https://johndck.github.io/EDX-Week-5-Assignment/
+
 # Module 5 Challenge: Password Generator
 
 ## Overview
